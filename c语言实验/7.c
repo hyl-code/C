@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 #define N 80
 
 void getWords(char a[],char b[]);
@@ -11,7 +12,7 @@ void getWords(char a[N],char b[N]){
     int i = 0;
 
     while(a[i] != ' ' && a[i] != ',' && a[i] != '.'){
-        b[i] = a[i];
+        b[i] = tolower(a[i]);
         i++;
         j++;
     }
@@ -33,7 +34,7 @@ void sort(char word[N][20],int n[],int k){
 
     for(a = 0;a < k - 1;a++){
         for(b = 0;b < k - 1 - a;b++){
-            if(n[b] < n[b + 1]){
+            if(word[N][b] < word[N][b + 1]){
                 temp = n[b];
                 n[b] = n[b + 1];
                 n[b + 1] = temp;
@@ -46,14 +47,14 @@ void sort(char word[N][20],int n[],int k){
         if(t == 0)
             break;
     }
-    for(a = 0;a < k;a++){
+    for(a = 0; a < k; a++){
         printf("%s[%d]\n",word[a],n[a] + 1);
     }
 }
 
 void main(){
     char a[N],b[N];
-    char str[N],word[N][10];
+    char str[N],word[N][20];
     int i = 0,k,t,len;
     int n[N] = {0};
 
@@ -81,4 +82,5 @@ void main(){
             break;
     }
     sort(word,n,i);
+
 }
