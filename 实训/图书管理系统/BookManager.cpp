@@ -118,7 +118,7 @@ int main(void)
 						scanf("%d", &status);
 
 						char sql[200];
-						sprintf(sql, "insert into bookinfo VALUES (null,'%s','%s','%s')", bname, bauthor, status);
+						sprintf(sql, "insert into bookinfo VALUES (null,'%s','%s','%d')", bname, bauthor, status);
 						if (mysql_query(pconn, sql)) {
 							printf("添加失败,错误为：%s\n", mysql_error(pconn));
 						}
