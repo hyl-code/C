@@ -1,6 +1,6 @@
-#include <stdio.h>
 #include <process.h>
-#include <iostream.h>
+#include <iostream>
+using   namespace   std; 
 
 #define NUM 5
 
